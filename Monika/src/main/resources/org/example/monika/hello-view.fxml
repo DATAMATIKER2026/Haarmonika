@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.monika.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="search" layoutX="39.0" layoutY="33.0" />
+      <Text layoutX="39.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundenavn" />
+      <Button fx:id="searchButton" layoutX="204.0" layoutY="33.0" mnemonicParsing="false" text="Søg" />
+      <TextField fx:id="user" layoutX="424.0" layoutY="33.0" text="bruger" />
+      <Text layoutX="251.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Denne dag" />
+      <Button layoutX="43.0" layoutY="79.0" mnemonicParsing="false" text="Forrige" />
+      <Button layoutX="522.0" layoutY="79.0" mnemonicParsing="false" text="Næste" />
+      <HBox layoutX="71.0" layoutY="164.0" prefHeight="277.0" prefWidth="418.0">
+         <children>
+            <ListView prefHeight="251.0" prefWidth="110.0" />
+            <ListView prefHeight="251.0" prefWidth="111.0" />
+            <ListView prefHeight="251.0" prefWidth="110.0" />
+            <ListView prefHeight="251.0" prefWidth="110.0" />
+         </children>
+      </HBox>
+      <Button layoutX="71.0" layoutY="458.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="418.0" text="Opret ny booking" />
+      <Button layoutX="71.0" layoutY="502.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="418.0" text="Opret ny kunde" />
+      <TextField layoutX="71.0" layoutY="139.0" prefHeight="26.0" prefWidth="104.0" text="Frisør 1" />
+      <TextField layoutX="175.0" layoutY="140.0" prefHeight="26.0" prefWidth="106.0" text="Frisør 2" />
+      <TextField layoutX="280.0" layoutY="140.0" prefHeight="26.0" prefWidth="106.0" text="Frisør 3" />
+      <TextField layoutX="385.0" layoutY="141.0" prefHeight="26.0" prefWidth="106.0" text="Frisør 4" />
+   </children>
+</AnchorPane>
