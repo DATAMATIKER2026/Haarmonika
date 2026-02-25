@@ -1,4 +1,4 @@
 package org.example.monika.Model;
 
-public class ABooking {
+public class abooking {
 }
