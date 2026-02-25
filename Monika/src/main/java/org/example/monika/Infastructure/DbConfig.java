@@ -1,5 +1,7 @@
 package org.example.monika.Infastructure;
 
+import org.example.monika.Repository.DataAccessException;
+
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,7 +22,7 @@ public class DbConfig {
             }
             props.load(is);
         } catch (Exception e) {
-            throw new DataAccessException("Kunne ikke læse db.properties", e);
+            throw new DataAccessException("Kunne ikke læse db.properties");
         }
 
         this.url = props.getProperty("db.url");
@@ -32,7 +34,7 @@ public class DbConfig {
         try {
             return DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
-            throw new DataAccessException("Kunne ikke oprette forbindelse til databasen", e);
+            throw new DataAccessException("Kunne ikke oprette forbindelse til databasen");
         }
     }
 }
