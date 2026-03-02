@@ -1,9 +1,9 @@
 package org.example.monika.ui;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import org.example.monika.Model.Coworker;
+import org.example.monika.Navigation.SceneNavigator;
 import org.example.monika.service.LoginService;
 import javafx.scene.control.TextField;
 

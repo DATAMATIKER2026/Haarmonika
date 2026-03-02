@@ -1,10 +1,8 @@
 package org.example.monika;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.monika.ui.SceneNavigator;
+import org.example.monika.Navigation.SceneNavigator;
 
 public class Main extends Application {
 
@@ -13,14 +11,13 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         SceneNavigator.setStage(stage);
 
-        SceneNavigator.loadScene("Login", "/loginPage.fxml");
-        // Oversigt udkomenteret så vi kan opdatere i login.
+        //SceneNavigator.loadScene("Login", "/loginPage.fxml");
         //SceneNavigator.loadScene("Oversigt", "/frontPage.fxml");
         //SceneNavigator.loadScene("Booking", "/bookingPage.fxml");
-        SceneNavigator.loadScene("KundeOprettelse", "/customerPage.fxml");
+        //SceneNavigator.loadScene("KundeOprettelse", "/customerPage.fxml");
 
+        SceneNavigator.loadScene("Login","/loginPage.fxml");
         SceneNavigator.switchTo("Login");
-
         stage.setTitle("Login");
         stage.show();
     }

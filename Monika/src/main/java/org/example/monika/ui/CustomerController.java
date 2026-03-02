@@ -1,14 +1,15 @@
 package org.example.monika.ui;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import org.example.monika.Model.Coworker;
 import org.example.monika.Model.Customer;
+import org.example.monika.Navigation.SceneNavigator;
 import org.example.monika.service.CustomerService;
 
-import java.sql.SQLException;
-
 public class CustomerController {
+
+    private final CustomerService customerService;
 
     @FXML
     private TextField customerNameField;
@@ -18,8 +19,13 @@ public class CustomerController {
     private TextField customerPhoneField;
     @FXML
     private TextField customerAddressField;
+    @FXML
+    private Label errorLabel;
 
-    private final CustomerService customerService = new CustomerService();
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+
+    }
 
     public void onCreateButtonClick() {
         try {
@@ -29,10 +35,9 @@ public class CustomerController {
             String address = customerAddressField.getText();
 
             Customer customer = new Customer(fname, mail, tlfnr, address);
-
             Customer created = customerService.create(customer);
 
-            System.out.println("Kunde oprettet med ID : " + created.getCustomerId());
+            errorLabel.setText("Kunde oprettet med ID : " + created.getCustomerId());
 
         } catch (IllegalArgumentException e) {
             System.out.println("Fejl i input: " + e.getMessage());
@@ -43,7 +48,8 @@ public class CustomerController {
 
     public void onReturn(){
         try {
-            SceneNavigator.switchTo("KundeOprettelse");
+            SceneNavigator.loadScene("Oversigt", "/frontPage.fxml");
+            SceneNavigator.switchTo("Oversigt");
         } catch (Exception e) {
             System.out.println("Kritisk fejl, kontakt administrator");
         }

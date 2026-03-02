@@ -1,15 +1,18 @@
 package org.example.monika.service;
 
 import org.example.monika.Infastructure.DbConfig;
+import org.example.monika.Model.Coworker;
 import org.example.monika.Model.Customer;
 import org.example.monika.Repository.CustomerRepository;
 
 import java.sql.SQLException;
+import java.util.Comparator;
+import java.util.List;
 
 public class CustomerService {
     private final CustomerRepository customerRepo;
 
-    public CustomerService(){
+    public CustomerService(CustomerRepository customerRepository){
         this.customerRepo = new CustomerRepository(new DbConfig());
     }
 

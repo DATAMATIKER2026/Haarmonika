@@ -2,9 +2,12 @@ package org.example.monika.Repository;
 import  org.example.monika.Infastructure.DbConfig;
 
 
+import org.example.monika.Model.Coworker;
 import org.example.monika.Model.Customer;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerRepository implements CustomerInterface {
 

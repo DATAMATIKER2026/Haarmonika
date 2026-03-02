@@ -25,6 +25,19 @@ public class Coworker extends Person {
         this.securitylevel = securitylevel;
     }
 
+    // Constructor to drop down menu
+    /*
+    public Coworker(int coworkerId, String fname) {
+        super(fname, null, 0);
+        this.coworkerId = coworkerId;
+    }
+    */
+
+    @Override
+    public String toString() {
+        return getFname();
+    }
+
     // Getter for coworkerId
     public int getCoworkerId() {
         return coworkerId;

@@ -8,4 +8,5 @@ module org.example.monika {
 
     opens org.example.monika.ui to javafx.fxml;
     exports org.example.monika;
+    opens org.example.monika.Navigation to javafx.fxml;
 }

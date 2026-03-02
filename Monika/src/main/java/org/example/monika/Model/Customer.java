@@ -1,4 +1,7 @@
 package org.example.monika.Model;
+
+import java.util.List;
+
 public class Customer extends Person {
 
     // Unique attribute only for Customer
@@ -17,6 +20,11 @@ public class Customer extends Person {
     public Customer(String fname, String mail, int tlfnr,  String address) {
         // Calls Person constructor
         super(fname, mail, tlfnr);
+    }
+
+    @Override
+    public String toString() {
+        return getFname();
     }
 
     // Getter for customerId
