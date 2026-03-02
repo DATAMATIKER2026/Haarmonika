@@ -14,6 +14,7 @@ import org.example.monika.ui.CustomerController;
 import org.example.monika.ui.LoginController;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 
 
@@ -27,6 +28,7 @@ public class SceneNavigator {
 
     public static void loadScene(String sceneName, String fxmlPath) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SceneNavigator.class.getResource(fxmlPath));
+   
         fxmlLoader.setControllerFactory(type -> {
             if (type == BookingController.class) {
                 DbConfig db = new DbConfig();
@@ -36,6 +38,7 @@ public class SceneNavigator {
 
                 BookingService bookingService = new BookingService(coworkerRepository, customerRepository);
                 CustomerService customerService = new CustomerService(customerRepository);
+
 
                 return new BookingController(bookingService, customerService);
             }

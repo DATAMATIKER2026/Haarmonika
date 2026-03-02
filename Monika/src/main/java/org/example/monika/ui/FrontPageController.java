@@ -58,7 +58,7 @@ public class FrontPageController {
 
     @FXML
     private void onClickNewCustomer() throws IOException {
-        SceneNavigator.loadScene("KundeOprettelse", "\"/customerPage.fxml\"");
+        SceneNavigator.loadScene("KundeOprettelse", "/customerPage.fxml");
         SceneNavigator.switchTo("KundeOprettelse");
     }
 
