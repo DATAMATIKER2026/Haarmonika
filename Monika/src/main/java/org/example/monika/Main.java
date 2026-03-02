@@ -4,26 +4,28 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.monika.ui.SceneNavigator;
 
 public class Main extends Application {
 
+    //Set og loading af scener fra start
     @Override
     public void start(Stage stage) throws Exception {
+        SceneNavigator.setStage(stage);
 
-        var url = getClass().getResource("/frontPage.fxml");
+        SceneNavigator.loadScene("Login", "/loginPage.fxml");
+        // Oversigt udkomenteret så vi kan opdatere i login.
+        //SceneNavigator.loadScene("Oversigt", "/frontPage.fxml");
+        //SceneNavigator.loadScene("Booking", "/bookingPage.fxml");
+        SceneNavigator.loadScene("KundeOprettelse", "/customerPage.fxml");
 
-        if (url == null) {
-            throw new IllegalStateException("Kunne ikke finde /hello_view.fxml i resources");
-        }
+        SceneNavigator.switchTo("Login");
 
-        FXMLLoader loader = new FXMLLoader(url);
-        Scene scene = new Scene(loader.load());
-
-        stage.setTitle("Haarmonika");
-        stage.setScene(scene);
+        stage.setTitle("Login");
         stage.show();
     }
 
+    //Launcher
     public static void main(String[] args) {
         launch(args);
     }

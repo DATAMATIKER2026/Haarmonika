@@ -16,7 +16,7 @@ public class DbConfig {
     public DbConfig() {
         Properties props = new Properties();
 
-        try (InputStream is = getClass().getResourceAsStream("/db.properties")) {
+        try (InputStream is = DbConfig.class.getResourceAsStream("/db.properties");) {
             if (is == null) {
                 throw new DataAccessException("Kunne ikke finde db.properties i resources");
             }
@@ -34,7 +34,7 @@ public class DbConfig {
         try {
             return DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
-            throw new DataAccessException("Kunne ikke oprette forbindelse til databasen");
+            throw new DataAccessException("Kunne ikke oprette forbindelse til databasen" + e.getMessage());
         }
     }
 }
