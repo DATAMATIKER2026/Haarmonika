@@ -12,7 +12,7 @@
     <children>
         <TextField fx:id="customerSearch" layoutX="39.0" layoutY="33.0" />
         <Text layoutX="39.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundenavn" />
-        <Button fx:id="searchButton" layoutX="204.0" layoutY="33.0" mnemonicParsing="false" text="Søg" />
+        <Button fx:id="searchButton" layoutX="204.0" layoutY="33.0" mnemonicParsing="false" text="Søg" onAction="#searchCustomer" />
         <TextField fx:id="userField" layoutX="424.0" layoutY="33.0" text="bruger" />
         <HBox layoutX="71.0" layoutY="164.0" prefHeight="277.0" prefWidth="418.0">
             <children>

@@ -79,4 +79,59 @@ public class CustomerRepository implements CustomerInterface {
 
     }
 
+    public Customer findByName(String name) {
+        // Finds customerid, name, mail and phonenumber from customer table in database
+        // Finds coworkerid from bookingtable and left joins the two ids
+        String sql = "SELECT c.customerId, c.fname, c.mail, c.tlfnr, b.coworkerId " +
+                "FROM customer c " +
+                "LEFT JOIN Bookings b ON c.customerId = b.customerId " +
+                "WHERE c.fname LIKE ?";
+
+        try (Connection con = db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + name + "%");
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                int id = rs.getInt("customerId");
+                String fullName = rs.getString("fname");
+                int coworkerId = rs.getInt("coworkerId");
+                String mail = rs.getString("mail");
+                int tlfnr = rs.getInt("tlfnr");
+
+
+                return new Customer(id, fullName, coworkerId, mail, tlfnr);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Customer> findAll() {
+        String sql = "SELECT * FROM customer";
+
+        List<Customer> customer = new ArrayList<>();
+
+        try (Connection con = db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                customer.add(new Customer(
+                        rs.getInt("customerId"),
+                        rs.getString("fname"),
+                        rs.getString("mail"),
+                        rs.getInt("tlfnr"),
+                        rs.getString("address")
+                ));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return customer;
+    }
+
 }

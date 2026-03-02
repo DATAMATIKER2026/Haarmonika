@@ -7,6 +7,9 @@ public class Customer extends Person {
     // Unique attribute only for Customer
     private int customerId;
     private String address;
+    // This attribute is used for comparing coworkerId
+    private int coworkerId;
+    private List<Booking> bookings;
 
     // Full constructor
     public Customer(int customerId, String fname, String mail, int tlfnr, String address) {
@@ -14,6 +17,13 @@ public class Customer extends Person {
         super(fname, mail, tlfnr);
         this.customerId = customerId;
         this.address = address;
+    }
+
+    // Constructor til findByName
+    public Customer(int customerId, String fname, int coworkerId, String mail, int tlfnr) {
+        super(fname, mail, tlfnr);
+        this.customerId = customerId;
+        this.coworkerId = coworkerId;
     }
 
     // Constructor without ID
@@ -31,6 +41,7 @@ public class Customer extends Person {
     public int getCustomerId() {
         return customerId;
     }
+    public int getCoworkerId() {return coworkerId;}
 
     // Setter for customerId
     public void setCustomerId(int customerId) {
