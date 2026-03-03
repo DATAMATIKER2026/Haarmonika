@@ -7,9 +7,6 @@ public class Customer extends Person {
     // Unique attribute only for Customer
     private int customerId;
     private String address;
-    // This attribute is used for comparing coworkerId
-    private int coworkerId;
-    private List<Booking> bookings;
 
     // Full constructor
     public Customer(int customerId, String fname, String mail, int tlfnr, String address) {

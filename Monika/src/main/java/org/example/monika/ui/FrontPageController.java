@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import  org.example.monika.Infastructure.DbConfig;
 
 import java.io.IOException;
+import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,6 +13,7 @@ import org.example.monika.Model.Coworker;
 import org.example.monika.Model.Customer;
 import org.example.monika.Navigation.SceneNavigator;
 import org.example.monika.Repository.CustomerRepository;
+import org.example.monika.service.FrontPageService;
 
 public class FrontPageController {
     @FXML private TextField customerSearch;
@@ -38,7 +40,7 @@ public class FrontPageController {
     private ObservableList<String> list3 = FXCollections.observableArrayList();
     private ObservableList<String> list4 = FXCollections.observableArrayList();
 
-    private CustomerRepository customerRepo;
+    private FrontPageService frontPageService;
 
 
     @FXML
@@ -48,7 +50,7 @@ public class FrontPageController {
         if (user != null) {
             userField.setText("Velkommen, " + user.getFname());
         }
-        this.customerRepo = new CustomerRepository(new DbConfig());
+        this.frontPageService = new FrontPageService();
 
         f1.setItems(list1);
         f2.setItems(list2);
@@ -70,37 +72,19 @@ public class FrontPageController {
 
     @FXML
     private void searchCustomer() {
-        String searchTerm  = customerSearch.getText();
+        String searchTerm = customerSearch.getText();
 
         if (searchTerm.isEmpty()) {
             return;
         }
 
-        Customer foundCustomer = customerRepo.findByName(searchTerm);
+        frontPageService.searchAndSort(searchTerm, list1, list2, list3, list4);
 
-        if (foundCustomer != null) {
-            String displayText = foundCustomer.getFname();
-            int coworkerId = foundCustomer.getCoworkerId();
-
-            switch (coworkerId) {
-                case 1:
-                    list1.add(displayText);
-                    break;
-                case 2:
-                    list2.add(displayText);
-                    break;
-                case 3:
-                    list3.add(displayText);
-                    break;
-                case 4:
-                    list4.add(displayText);
-                    break;
-                default:
-                    showAlert ("Ingen arbejder", "Kunden er ikke tildelt en medarbejder.");
-                    break;
-            }
+        if (list1.isEmpty() && list2.isEmpty() && list3.isEmpty() && list4.isEmpty()) {
+            showAlert("Ikke fundet", "Der blev ikke fundet en kunde med navnet: " + searchTerm);
         } else {
-            showAlert("Ikke fundet", "Der er ikke blevet fundet en kunde med navnet: " + searchTerm);
+            //DEBUGGING
+            System.out.println("fundet");
         }
     }
 

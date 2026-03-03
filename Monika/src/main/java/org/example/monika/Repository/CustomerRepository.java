@@ -83,13 +83,14 @@ public class CustomerRepository implements CustomerInterface {
 
     }
 
-    public Customer findByName(String name) {
+    public List<Customer> findByName(String name) {
+        List<Customer> customers = new ArrayList<>();
         // Finds customerid, name, mail and phonenumber from customer table in database
         // Finds coworkerid from bookingtable and left joins the two ids
-        String sql = "SELECT c.customerId, c.fname, c.mail, c.tlfnr, b.coworkerId " +
-                "FROM customer c " +
-                "LEFT JOIN Bookings b ON c.customerId = b.customerId " +
-                "WHERE c.fname LIKE ?";
+        String sql = "SELECT customerId, fname, mail, tlfnr\n" +
+                "                FROM customer\n" +
+                "                WHERE fname LIKE ?\n" +
+                "                ORDER BY fname";
 
         try (Connection con = db.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
