@@ -19,6 +19,6 @@
         <Text layoutX="279.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse" />
         <Button layoutX="150.0" layoutY="423.0" mnemonicParsing="false" onAction="#onReturn" text="Tilbage" />
         <Button fx:id="customerCreateButton" layoutX="402.0" layoutY="423.0" mnemonicParsing="false" onAction="#onCreateButtonClick" text="Opret" />
-      <Label layoutX="286.0" layoutY="482.0" textAlignment="CENTER" />
+      <Label fx:id="errorLabel" layoutX="286.0" layoutY="482.0" textAlignment="CENTER" />
     </children>
 </AnchorPane>

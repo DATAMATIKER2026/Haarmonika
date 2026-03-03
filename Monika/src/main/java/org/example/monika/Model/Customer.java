@@ -19,17 +19,15 @@ public class Customer extends Person {
         this.address = address;
     }
 
-    // Constructor til findByName
-    public Customer(int customerId, String fname, int coworkerId, String mail, int tlfnr) {
+    public Customer(int customerId, String fname, String mail, int tlfnr) {
         super(fname, mail, tlfnr);
         this.customerId = customerId;
-        this.coworkerId = coworkerId;
     }
 
-    // Constructor without ID
-    public Customer(String fname, String mail, int tlfnr,  String address) {
+    public Customer(String fname, String mail, int tlfnr, String address) {
         // Calls Person constructor
         super(fname, mail, tlfnr);
+        this.address = address;
     }
 
     @Override

@@ -10,8 +10,6 @@ import javafx.scene.control.TextField;
 public class LoginController {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
-    @FXML private Button loginButton;
-    @FXML private Label errorLabel;
 
     private final LoginService loginService = new LoginService();
 
@@ -28,7 +26,14 @@ public class LoginController {
             SceneNavigator.switchTo("Oversigt");
 
         } catch (Exception ex) {
-            errorLabel.setText(ex.getMessage());
+            showAlert("Fejl", ex.getMessage());
         }
+    }
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

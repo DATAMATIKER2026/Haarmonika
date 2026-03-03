@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.monika.Infastructure.DbConfig;
+import org.example.monika.Repository.BookingRepository;
 import org.example.monika.Repository.CoworkerRepository;
 import org.example.monika.Repository.CustomerRepository;
 import org.example.monika.service.BookingService;
@@ -35,10 +36,10 @@ public class SceneNavigator {
 
                 CoworkerRepository coworkerRepository = new CoworkerRepository(db);
                 CustomerRepository customerRepository = new CustomerRepository(db);
+                BookingRepository bookingRepository = new BookingRepository(db);
 
-                BookingService bookingService = new BookingService(coworkerRepository, customerRepository);
+                BookingService bookingService = new BookingService(coworkerRepository, customerRepository, bookingRepository);
                 CustomerService customerService = new CustomerService(customerRepository);
-
 
                 return new BookingController(bookingService, customerService);
             }

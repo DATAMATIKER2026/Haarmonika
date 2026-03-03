@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
@@ -11,14 +12,19 @@
     <children>
         <Text layoutX="276.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking" />
         <Text layoutX="268.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vælg kunde" />
-        <Text layoutX="283.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dato" />
-        <DatePicker fx:id="DateChoice" layoutX="210.0" layoutY="194.0" />
-        <Text layoutX="285.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Frisør" />
-        <TextField fx:id="Comment" layoutX="228.0" layoutY="380.0" promptText="Ekstra kommentar" />
-        <Text layoutX="265.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kommentar" />
-        <Button fx:id="CreateBookingButton" layoutX="429.0" layoutY="455.0" mnemonicParsing="false" text="Opret" />
-        <Button fx:id="ReturnBookingButton" layoutX="158.0" layoutY="458.0" mnemonicParsing="false" onAction="#onReturn" text="Tilbage" />
-      <ComboBox fx:id="customerComboBox" layoutX="221.0" layoutY="118.0" prefWidth="150.0" />
-      <ComboBox fx:id="coworkerComboBox" layoutX="221.0" layoutY="293.0" prefWidth="150.0" />
+        <Text layoutX="283.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dato" />
+        <DatePicker fx:id="dateChoice" layoutX="210.0" layoutY="162.0" />
+        <Text layoutX="281.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Frisør" />
+        <TextField fx:id="comment" layoutX="225.0" layoutY="404.0" promptText="Ekstra kommentar" />
+        <Text layoutX="278.0" layoutY="210.0" text="Starttid" />
+        <TextField fx:id="startTimeField" layoutX="222.0" layoutY="223.0" promptText="f.eks. 14:30" />
+        <Text layoutX="246.0" layoutY="345.0" text="Varighed (minutter)" />
+        <TextField fx:id="durationField" layoutX="225.0" layoutY="349.0" promptText="30" />
+        <Text layoutX="266.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kommentar" />
+        <Button fx:id="CreateBookingButton" layoutX="429.0" layoutY="455.0" mnemonicParsing="false" onAction="#onCreateBooking" text="Opret" />
+        <Button fx:id="ReturnBookingButton" layoutX="112.0" layoutY="455.0" mnemonicParsing="false" onAction="#onReturn" text="Tilbage" />
+      <ComboBox fx:id="customerComboBox" layoutX="222.0" layoutY="96.0" prefWidth="150.0" />
+      <ComboBox fx:id="coworkerComboBox" layoutX="222.0" layoutY="284.0" prefWidth="150.0" />
+      <Label fx:id="errorLabel" layoutX="282.0" layoutY="501.0" textAlignment="CENTER" />
     </children>
 </AnchorPane>

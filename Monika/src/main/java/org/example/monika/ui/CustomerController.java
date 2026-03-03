@@ -1,6 +1,7 @@
 package org.example.monika.ui;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.example.monika.Model.Customer;
@@ -19,8 +20,6 @@ public class CustomerController {
     private TextField customerPhoneField;
     @FXML
     private TextField customerAddressField;
-    @FXML
-    private Label errorLabel;
 
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
@@ -37,12 +36,12 @@ public class CustomerController {
             Customer customer = new Customer(fname, mail, tlfnr, address);
             Customer created = customerService.create(customer);
 
-            errorLabel.setText("Kunde oprettet med ID : " + created.getCustomerId());
+            showAlert("Oprettet", "Kunde oprettet med ID : " + created.getCustomerId());
 
         } catch (IllegalArgumentException e) {
-            System.out.println("Fejl i input: " + e.getMessage());
+            showAlert("Forkert input", "Fejl i input");
         } catch (Exception e) {
-            System.out.println("Uventet fejl: " + e.getMessage());
+            showAlert("KRITISK FEJL", "Kritisk fejl, kontakt administrator");
         }
     }
 
@@ -51,7 +50,14 @@ public class CustomerController {
             SceneNavigator.loadScene("Oversigt", "/frontPage.fxml");
             SceneNavigator.switchTo("Oversigt");
         } catch (Exception e) {
-            System.out.println("Kritisk fejl, kontakt administrator");
+            showAlert("KRITISK FEJL", "Kritisk fejl, kontakt administrator");
         }
+    }
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

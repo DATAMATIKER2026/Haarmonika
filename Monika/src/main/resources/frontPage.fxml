@@ -12,22 +12,22 @@
     <children>
         <TextField fx:id="customerSearch" layoutX="39.0" layoutY="33.0" />
         <Text layoutX="39.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundenavn" />
-        <Button fx:id="searchButton" layoutX="204.0" layoutY="33.0" mnemonicParsing="false" text="Søg" onAction="#searchCustomer" />
+        <Button fx:id="searchButton" layoutX="204.0" layoutY="33.0" mnemonicParsing="false" onAction="#searchCustomer" text="Søg" />
         <TextField fx:id="userField" layoutX="424.0" layoutY="33.0" text="bruger" />
-        <HBox layoutX="71.0" layoutY="164.0" prefHeight="277.0" prefWidth="418.0">
+        <HBox layoutX="23.0" layoutY="164.0" prefHeight="278.0" prefWidth="538.0">
             <children>
-                <ListView fx:id="f1" prefHeight="251.0" prefWidth="110.0" />
-                <ListView fx:id="f2" prefHeight="251.0" prefWidth="111.0" />
-                <ListView fx:id="f3" prefHeight="251.0" prefWidth="110.0" />
-                <ListView fx:id="f4" prefHeight="251.0" prefWidth="110.0" />
+                <ListView fx:id="f1" prefHeight="278.0" prefWidth="135.0" />
+                <ListView fx:id="f2" prefHeight="278.0" prefWidth="135.0" />
+                <ListView fx:id="f3" prefHeight="278.0" prefWidth="135.0" />
+                <ListView fx:id="f4" prefHeight="278.0" prefWidth="135.0" />
             </children>
         </HBox>
         <Button fx:id="newBooking" layoutX="71.0" layoutY="454.0" mnemonicParsing="false" onAction="#onClickNewBooking" prefHeight="30.0" prefWidth="418.0" text="Opret ny booking" />
         <Button fx:id="newCostumer" layoutX="71.0" layoutY="502.0" mnemonicParsing="false" onAction="#onClickNewCustomer" prefHeight="30.0" prefWidth="418.0" text="Opret ny kunde" />
-        <TextField fx:id="coworkerOne" layoutX="71.0" layoutY="139.0" prefHeight="26.0" prefWidth="104.0" text="Frisør 1" />
-        <TextField fx:id="coworkerTwo" layoutX="175.0" layoutY="139.0" prefHeight="26.0" prefWidth="106.0" text="Frisør 2" />
-        <TextField fx:id="coworkerThree" layoutX="280.0" layoutY="139.0" prefHeight="26.0" prefWidth="106.0" text="Frisør 3" />
-        <TextField fx:id="coworkerFour" layoutX="386.0" layoutY="139.0" prefHeight="26.0" prefWidth="106.0" text="Frisør 4" />
-        <DatePicker fx:id="calender" layoutX="71.0" layoutY="113.0" />
+        <TextField fx:id="coworkerOne" layoutX="25.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 1" />
+        <TextField fx:id="coworkerTwo" layoutX="160.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 2" />
+        <TextField fx:id="coworkerThree" layoutX="292.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 3" />
+        <TextField fx:id="coworkerFour" layoutX="429.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 4" />
+        <DatePicker fx:id="calender" layoutX="26.0" layoutY="113.0" />
     </children>
 </AnchorPane>

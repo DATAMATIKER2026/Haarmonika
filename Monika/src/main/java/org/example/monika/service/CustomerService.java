@@ -25,13 +25,13 @@ public class CustomerService {
     public boolean update(Customer customer) throws SQLException{
         validate(customer);
         if (customer.getCustomerId() <= 0){
-            throw new IllegalArgumentException("Customer id has to be higher than 0");
+            throw new IllegalArgumentException("Kunde id skal være større end 1");
         }
         return customerRepo.update(customer);
     }
 
     public boolean deleteById(int id) throws SQLException {
-        if (id <= 0) throw new IllegalArgumentException("Unknown ID");
+        if (id <= 0) throw new IllegalArgumentException("Ukendt ID");
         return customerRepo.deleteById(id);
     }
 
