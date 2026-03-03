@@ -39,8 +39,10 @@ public class Customer extends Person {
     public int getCustomerId() {
         return customerId;
     }
-    public int getCoworkerId() {return coworkerId;}
 
+    public String getAddress(){
+        return address;
+    }
     // Setter for customerId
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
@@ -48,8 +50,6 @@ public class Customer extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
-    public String getAddress(){
-        return address;
-    }
+
 }
 
