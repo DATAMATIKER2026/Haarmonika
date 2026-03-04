@@ -46,7 +46,6 @@ public class FrontPageController {
     @FXML
     private void initialize() {
         Coworker user = UserSession.get();
-        System.out.println(user.getFname());
         if (user != null) {
             userField.setText("Velkommen, " + user.getFname());
         }
@@ -82,9 +81,6 @@ public class FrontPageController {
 
         if (list1.isEmpty() && list2.isEmpty() && list3.isEmpty() && list4.isEmpty()) {
             showAlert("Ikke fundet", "Der blev ikke fundet en kunde med navnet: " + searchTerm);
-        } else {
-            //DEBUGGING
-            System.out.println("fundet");
         }
     }
 

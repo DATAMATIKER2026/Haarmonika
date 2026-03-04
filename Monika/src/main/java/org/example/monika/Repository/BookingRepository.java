@@ -3,6 +3,7 @@ package org.example.monika.Repository;
 
 import org.example.monika.Infastructure.DbConfig;
 import org.example.monika.Model.Booking;
+import org.example.monika.Model.BookingDisplay;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -82,6 +83,36 @@ public class BookingRepository {
             throw new RuntimeException("Fejl ved søgning af overlapped bookinger");
         }
         return results;
+    }
+
+    public List<BookingDisplay> getAllBookings(LocalDate date) {
+        List<BookingDisplay> bookings = new ArrayList<>();
+
+        String sql = "SELECT c.fname, b.booking_Date, b.start_Time, b.coworkerId " +
+                "FROM Bookings b " +
+                "JOIN customer c ON b.customerid = c.customerid " +
+                "WHERE b.booking_Date = ?";
+
+        try (Connection con = db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setDate(1, java.sql.Date.valueOf(date));
+
+            try (ResultSet rs = ps.executeQuery()) {
+
+                while (rs.next()) {
+                    String customerName = rs.getString("fname" );
+                    LocalDate bookingDate = rs.getDate("booking_date" ).toLocalDate();
+                    LocalTime time = rs.getTime("start_time" ).toLocalTime();
+                    int coworkerId = rs.getInt("coworkerid" );
+
+                    bookings.add(new BookingDisplay(customerName, bookingDate, time, coworkerId));
+                }
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        return bookings;
     }
 }
 

@@ -12,8 +12,4 @@ public class UserSession {
     public static Coworker get() {
         return currentUser;
     }
-
-    public static void clear() {
-        currentUser = null;
-    }
 }

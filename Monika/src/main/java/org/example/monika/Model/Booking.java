@@ -12,9 +12,6 @@ public class Booking{
     private LocalTime startTime;
     private int duration;
     private String comment;
-    private Coworker coworker;
-
-
 
     //full contructor get booking from database
     public Booking(int id, int customerid, int coworkerid, LocalDate date, LocalTime startTime, int duration, String comment) {

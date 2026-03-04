@@ -30,6 +30,13 @@ public class DbConfig {
         this.password = props.getProperty("db.password");
     }
 
+    public DbConfig(String url, String user, String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+    }
+
+
     public Connection getConnection() {
         try {
             return DriverManager.getConnection(url, user, password);

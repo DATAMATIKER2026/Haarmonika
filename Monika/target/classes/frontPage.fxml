@@ -25,7 +25,7 @@
         <Button fx:id="newBooking" layoutX="71.0" layoutY="454.0" mnemonicParsing="false" onAction="#onClickNewBooking" prefHeight="30.0" prefWidth="418.0" text="Opret ny booking" />
         <Button fx:id="newCostumer" layoutX="71.0" layoutY="502.0" mnemonicParsing="false" onAction="#onClickNewCustomer" prefHeight="30.0" prefWidth="418.0" text="Opret ny kunde" />
         <TextField fx:id="coworkerOne" layoutX="25.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 1" />
-        <TextField fx:id="coworkerTwo" layoutX="150.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 2" />
+        <TextField fx:id="coworkerTwo" layoutX="160.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 2" />
         <TextField fx:id="coworkerThree" layoutX="292.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 3" />
         <TextField fx:id="coworkerFour" layoutX="429.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 4" />
         <DatePicker fx:id="calender" layoutX="26.0" layoutY="113.0" />

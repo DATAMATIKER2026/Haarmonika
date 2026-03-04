@@ -107,7 +107,6 @@ public class CustomerRepository implements CustomerInterface {
                     ));
                 }
             }
-            System.out.println("searching for: " + name);
         } catch (SQLException e) {
             //Debugging
             System.err.println("SQL Error in findByName: " + e.getMessage());
