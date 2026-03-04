@@ -5,6 +5,7 @@ module org.example.monika {
     requires java.sql;
     requires javafx.base;
     requires mysql.connector.j;
+    requires java.desktop;
 
     opens org.example.monika.ui to javafx.fxml;
     exports org.example.monika;

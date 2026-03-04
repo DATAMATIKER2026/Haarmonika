@@ -2,9 +2,12 @@ package org.example.monika.ui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import  org.example.monika.Infastructure.DbConfig;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javafx.fxml.FXML;
@@ -14,6 +17,7 @@ import org.example.monika.Model.Customer;
 import org.example.monika.Navigation.SceneNavigator;
 import org.example.monika.Repository.CustomerRepository;
 import org.example.monika.service.FrontPageService;
+import org.example.monika.service.BookingService;
 
 public class FrontPageController {
     @FXML private TextField customerSearch;
@@ -55,6 +59,17 @@ public class FrontPageController {
         f2.setItems(list2);
         f3.setItems(list3);
         f4.setItems(list4);
+
+        calender.valueProperty().addListener(new ChangeListener<LocalDate>() {
+            @Override
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                if (newValue != null) {
+                    frontPageService.loadAllBookings(newValue, list1, list2, list3, list4);
+                }
+            }
+
+        });
+        calender.setValue(LocalDate.now());
     }
 
     @FXML

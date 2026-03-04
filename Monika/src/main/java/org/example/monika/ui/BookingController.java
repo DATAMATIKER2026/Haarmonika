@@ -57,7 +57,7 @@ public class BookingController {
                 showAlert("Optaget", "Tiden er allerede optaget");
             } else {
                 bookingService.createBooking(customer.getCustomerId(), coworker.getCoworkerId(), date, start, duration, comment.getText());
-                showAlert("Oprettet", "Kunde oprettet med ID " + customer.getCustomerId());
+                showAlert("Oprettet", "Booking oprettet med ID " + customer.getCustomerId());
             }
         } catch (IllegalArgumentException e) {
             showAlert("ATTENTION!", e.getMessage());
