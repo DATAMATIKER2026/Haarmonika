@@ -10,12 +10,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         SceneNavigator.setStage(stage);
-
-        //SceneNavigator.loadScene("Login", "/loginPage.fxml");
-        //SceneNavigator.loadScene("Oversigt", "/frontPage.fxml");
-        //SceneNavigator.loadScene("Booking", "/bookingPage.fxml");
-        //SceneNavigator.loadScene("KundeOprettelse", "/customerPage.fxml");
-
         SceneNavigator.loadScene("Login","/loginPage.fxml");
         SceneNavigator.switchTo("Login");
         stage.setTitle("Login");

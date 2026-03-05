@@ -20,7 +20,6 @@ public class BookingController {
     @FXML private TextField durationField;
     @FXML private DatePicker dateChoice;
     @FXML private TextField comment;
-    @FXML private Label errorLabel;
 
     private final BookingService bookingService;
     private final CustomerService customerService;

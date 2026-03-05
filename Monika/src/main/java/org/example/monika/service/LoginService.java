@@ -12,22 +12,22 @@ public class LoginService {
         this.coworkerRepo = new CoworkerRepository(new DbConfig());
     }
 
-    public Coworker login(String email, String password)throws Exception{
+    public Coworker login(String email, String password)throws IllegalArgumentException{
         if (email == null || email.isBlank()){
-            throw new Exception("Email må ikke være tom");
+            throw new IllegalArgumentException("Email må ikke være tom");
         }
         if (password == null || password.isBlank()){
-            throw new Exception("Password må ikke være tomt");
+            throw new IllegalArgumentException("Password må ikke være tomt");
         }
 
         Coworker c = coworkerRepo.findByEmail(email);
 
         if (c == null){
-            throw new Exception("Bruger findes ikke");
+            throw new IllegalArgumentException("Forkert password eller mail");
         }
 
-        if (!c.getPassword().equals(password)){
-            throw new Exception("Forkert password eller navn");
+        if (c.getPassword() == null || !c.getPassword().equals(password)){
+            throw new IllegalArgumentException("Forkert password eller mail");
         }
         return c;
     }

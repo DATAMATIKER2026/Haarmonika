@@ -28,10 +28,18 @@ public class CustomerController {
 
     public void onCreateButtonClick() {
         try {
-            String fname = customerNameField.getText();
-            String mail = customerMailField.getText();
-            int tlfnr = Integer.parseInt(customerPhoneField.getText());
-            String address = customerAddressField.getText();
+            String fname = customerNameField.getText().trim();
+            String mail = customerMailField.getText().trim();
+            int tlfnr = Integer.parseInt(customerPhoneField.getText().trim());
+            String address = customerAddressField.getText().trim();
+            if (fname.isBlank() || mail.isBlank() || customerPhoneField.getText().isBlank()) {
+                showAlert("Fejl", "Udfyld venligst alle felter");
+                return;
+            }
+            if (!customerPhoneField.getText().matches("\\d+")) {
+                showAlert("Fejl", "Telefonnummer må kun indeholde tal");
+                return;
+            }
 
             Customer customer = new Customer(fname, mail, tlfnr, address);
             Customer created = customerService.create(customer);
@@ -39,18 +47,18 @@ public class CustomerController {
             showAlert("Oprettet", "Kunde oprettet med ID : " + created.getCustomerId());
 
         } catch (IllegalArgumentException e) {
-            showAlert("Forkert input", "Fejl i input");
+            showAlert("Fejl", "Fejl i input");
         } catch (Exception e) {
-            showAlert("KRITISK FEJL", "Kritisk fejl, kontakt administrator");
+            showAlert("Fejl", "Kritisk fejl, kontakt administrator");
         }
     }
 
-    public void onReturn(){
+    public void onReturn() {
         try {
             SceneNavigator.loadScene("Oversigt", "/frontPage.fxml");
             SceneNavigator.switchTo("Oversigt");
         } catch (Exception e) {
-            showAlert("KRITISK FEJL", "Kritisk fejl, kontakt administrator");
+            showAlert("Fejl", "Kritisk fejl, kontakt administrator");
         }
     }
     private void showAlert(String title, String message) {

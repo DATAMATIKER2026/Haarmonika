@@ -3,7 +3,6 @@ package org.example.monika.Repository;
 import org.example.monika.Infastructure.DbConfig;
 import org.example.monika.Model.Coworker;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +17,7 @@ public class CoworkerRepository implements CoworkerInterface {
         this.db = db;
     }
 
+    @Override
     public List<Coworker> findAll() {
         String sql = "SELECT * FROM coworker";
 
@@ -44,29 +44,31 @@ public class CoworkerRepository implements CoworkerInterface {
     }
 
     public Coworker findByEmail(String email) {
-        String sql = "SELECT * FROM coworker WHERE mail like ?";
+        String sql = "SELECT * FROM coworker WHERE mail = ?";
 
         try (Connection con = db.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, "%" + email + "%");
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
 
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                return new Coworker(
-                        rs.getInt("coworkerId"),
-                        rs.getString("fname"),
-                        rs.getString("mail"),
-                        rs.getInt("tlfnr"),
-                        rs.getString("pass"),
-                        rs.getInt("securitylevel")
-                );
+                if (rs.next()) {
+                    return new Coworker(
+                            rs.getInt("coworkerId"),
+                            rs.getString("fname"),
+                            rs.getString("mail"),
+                            rs.getInt("tlfnr"),
+                            rs.getString("pass"),
+                            rs.getInt("securitylevel")
+                    );
+                }
+            } catch (SQLException sqe) {
+                throw new RuntimeException("Database fejl i findByEmail");
             }
         } catch (Exception e) {
-            throw new RuntimeException("Could not find a user");
+            throw new RuntimeException("Kunne ikke finde en bruger");
         }
         return null;
     }
-
 }
+

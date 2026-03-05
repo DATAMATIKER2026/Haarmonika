@@ -1,10 +1,7 @@
 package org.example.monika.Repository;
 
 import org.example.monika.Infastructure.DbConfig;
-
-
 import org.example.monika.Model.Booking;
-import org.example.monika.Model.Coworker;
 import org.example.monika.Model.Customer;
 
 import java.sql.*;
@@ -43,26 +40,7 @@ public class CustomerRepository implements CustomerInterface {
             }
         }
 
-        throw new SQLException("Could not create customer: no generated key returned.");
-    }
-
-    @Override
-    public boolean update(Customer customer) throws SQLException {
-        String sql = "UPDATE customer SET fname=?, mail=?, tlfnr=? WHERE customerId=?";
-
-        try (Connection con = db.getConnection();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, customer.getFname());
-            ps.setString(2, customer.getMail());
-            ps.setInt(3, customer.getTlfnr());
-            ps.setInt(4, customer.getCustomerId());
-            ps.setString(5, customer.getAddress());
-            // execute
-            int affectedRows = ps.executeUpdate();
-            // retuns true if 1 row was affected
-            return affectedRows == 1;
-        }
+        throw new SQLException("Could not create customer");
     }
 
     @Override
@@ -80,7 +58,6 @@ public class CustomerRepository implements CustomerInterface {
             // return true if 1 row was affected
             return affectedRows == 1;
         }
-
     }
 
     public List<Customer> findByName(String name) {
@@ -142,7 +119,7 @@ public class CustomerRepository implements CustomerInterface {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Fejl i at finde booking");
+            throw new RuntimeException("Fejl i at finde booking", e);
         }
         return bookings;
     }

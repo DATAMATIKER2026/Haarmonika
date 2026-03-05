@@ -8,17 +8,19 @@ import org.example.monika.service.LoginService;
 import javafx.scene.control.TextField;
 
 public class LoginController {
+    // FXML til text fields
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
 
     private final LoginService loginService = new LoginService();
 
+    //Loginclick validere userlogin og modtager sender user videre via UserSession så vi kan genbruge navnet i frontpage
     @FXML
     private void onLoginClick(){
         try {
             Coworker user = loginService.login(
-                    usernameField.getText(),
-                    passwordField.getText()
+                    usernameField.getText().trim(),
+                    passwordField.getText().trim()
             );
             UserSession.set(user);
 

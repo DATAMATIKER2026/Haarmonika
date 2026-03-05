@@ -1,6 +1,5 @@
 package org.example.monika.Repository;
 
-
 import org.example.monika.Infastructure.DbConfig;
 import org.example.monika.Model.Booking;
 import org.example.monika.Model.BookingDisplay;

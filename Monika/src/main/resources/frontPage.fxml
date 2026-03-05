@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,6 @@
         <TextField fx:id="customerSearch" layoutX="39.0" layoutY="33.0" />
         <Text layoutX="39.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundenavn" />
         <Button fx:id="searchButton" layoutX="204.0" layoutY="33.0" mnemonicParsing="false" onAction="#searchCustomer" text="Søg" />
-        <TextField fx:id="userField" layoutX="424.0" layoutY="33.0" text="bruger" />
         <HBox layoutX="23.0" layoutY="164.0" prefHeight="278.0" prefWidth="538.0">
             <children>
                 <ListView fx:id="f1" prefHeight="278.0" prefWidth="135.0" />
@@ -24,10 +24,12 @@
         </HBox>
         <Button fx:id="newBooking" layoutX="71.0" layoutY="454.0" mnemonicParsing="false" onAction="#onClickNewBooking" prefHeight="30.0" prefWidth="418.0" text="Opret ny booking" />
         <Button fx:id="newCostumer" layoutX="71.0" layoutY="502.0" mnemonicParsing="false" onAction="#onClickNewCustomer" prefHeight="30.0" prefWidth="418.0" text="Opret ny kunde" />
-        <TextField fx:id="coworkerOne" layoutX="25.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 1" />
-        <TextField fx:id="coworkerTwo" layoutX="160.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 2" />
-        <TextField fx:id="coworkerThree" layoutX="292.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 3" />
-        <TextField fx:id="coworkerFour" layoutX="429.0" layoutY="139.0" prefHeight="26.0" prefWidth="135.0" text="Frisør 4" />
         <DatePicker fx:id="calender" layoutX="26.0" layoutY="113.0" />
+      <Label fx:id="userField" layoutX="435.0" layoutY="37.0" prefHeight="18.0" prefWidth="120.0" textAlignment="CENTER" />
+      <Label layoutX="26.0" layoutY="144.0" prefHeight="18.0" prefWidth="134.0" text="Mikkel" textAlignment="CENTER" />
+      <Label layoutX="156.0" layoutY="144.0" prefHeight="18.0" prefWidth="135.0" text="Rasmus" textAlignment="CENTER" />
+      <Label layoutX="293.0" layoutY="144.0" prefHeight="18.0" prefWidth="135.0" text="Sofie" textAlignment="CENTER" />
+      <Label layoutX="427.0" layoutY="145.0" prefHeight="18.0" prefWidth="134.0" text="Monika" textAlignment="CENTER" />
+      <Button layoutX="468.0" layoutY="72.0" mnemonicParsing="false" onAction="#onLogOut" text="Log ud" />
     </children>
 </AnchorPane>

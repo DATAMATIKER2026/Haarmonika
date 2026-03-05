@@ -1,7 +1,5 @@
 package org.example.monika.Model;
 
-import java.util.List;
-
 public class Customer extends Person {
 
     // Unique attribute only for Customer
