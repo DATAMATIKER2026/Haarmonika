@@ -31,6 +31,8 @@ public class LoginController {
             showAlert("Fejl", ex.getMessage());
         }
     }
+
+    // ShowAlert viser en fejl besked direkte til brugeren
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);

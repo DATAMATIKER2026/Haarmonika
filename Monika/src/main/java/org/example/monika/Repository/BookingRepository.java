@@ -17,6 +17,7 @@ public class BookingRepository {
         this.db = db;
     }
 
+    // InsertBooking bliver brugt til at lave en ny booking i databasen
     public void insertBooking(int customerId, int coworkerId, LocalDate bookingDate, LocalTime startTime, int durationMinutes, String comment) {
         final String sql = """
                 INSERT INTO bookings
@@ -27,6 +28,7 @@ public class BookingRepository {
         try (Connection con = db.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
+            // Her sættes parameterne til databasen
             ps.setInt(1, customerId);
             ps.setInt(2, coworkerId);
             ps.setDate(3, Date.valueOf(bookingDate));
@@ -40,6 +42,7 @@ public class BookingRepository {
         }
     }
 
+    // Denne metode bruges til at finde bookings der overlapper hinanden
     public List<Booking> findOverlappingBookings(int coworkerId,
                                                  LocalDate bookingDate,
                                                  LocalTime requestedStart,
@@ -84,6 +87,7 @@ public class BookingRepository {
         return results;
     }
 
+    // Denne metode bruges til at hente alle bookings fra databasen
     public List<BookingDisplay> getAllBookings(LocalDate date) {
         List<BookingDisplay> bookings = new ArrayList<>();
 

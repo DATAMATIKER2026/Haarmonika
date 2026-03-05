@@ -1,6 +1,5 @@
 package org.example.monika.Model;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 

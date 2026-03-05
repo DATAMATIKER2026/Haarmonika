@@ -1,6 +1,5 @@
 package org.example.monika.Model;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -10,6 +9,7 @@ public class BookingDisplay {
     private LocalTime startTime;
     private int coworkerId;
 
+    // BookingDisplay constructor, bliver brugt til at sammenligne data fra customer table og bookings table
     public BookingDisplay(String customerName, LocalDate date, LocalTime startTime, int coworkerId) {
         this.customerName = customerName;
         this.date = date;
