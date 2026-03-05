@@ -17,12 +17,11 @@ public class BookingDisplay {
         this.coworkerId = coworkerId;
     }
 
+    // Getters
     public String getCustomerName() {
         return customerName;
     }
-    public LocalDate getDate() {
-        return date;
-    }
+    public LocalDate getDate() {return date;}
     public LocalTime getStartTime() {
         return startTime;
     }

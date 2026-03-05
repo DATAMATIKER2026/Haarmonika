@@ -34,17 +34,11 @@ public class Customer extends Person {
     public int getCustomerId() {
         return customerId;
     }
+    public String getAddress() {return address;}
 
-    public String getAddress(){
-        return address;
-    }
     // Setter for customerId
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    public void setCustomerId(int customerId) {this.customerId = customerId;}
+    public void setAddress(String address) {this.address = address;}
 
 }
 

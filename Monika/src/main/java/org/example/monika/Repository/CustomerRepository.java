@@ -60,6 +60,7 @@ public class CustomerRepository implements CustomerInterface {
         }
     }
 
+    @Override
     public List<Customer> findByName(String name) {
         List<Customer> customers = new ArrayList<>();
         // Finds customerid, name, mail and phonenumber from customer table in database
@@ -91,7 +92,7 @@ public class CustomerRepository implements CustomerInterface {
         }
         return customers;
     }
-
+    @Override
     public List<Booking> findBookingByCustomerId(int customerId) {
         List<Booking> bookings = new ArrayList<>();
         String sql = """
@@ -123,7 +124,7 @@ public class CustomerRepository implements CustomerInterface {
         }
         return bookings;
     }
-
+    @Override
     public List<Customer> findAll() {
         String sql = "SELECT * FROM customer";
 
